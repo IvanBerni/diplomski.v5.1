@@ -207,6 +207,20 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{adf7a5df-8b01-415b-a41f-840abfe146c3}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PoslovnaLogika\PoslovnaLogika.csproj">
+      <Project>{568ada15-df6b-49d6-a201-11916e199137}</Project>
+      <Name>PoslovnaLogika</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PristupPodatcima\PristupPodatcima.csproj">
+      <Project>{7ab2c45d-e9fe-4ddb-8549-79b0fee3f741}</Project>
+      <Name>PristupPodatcima</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

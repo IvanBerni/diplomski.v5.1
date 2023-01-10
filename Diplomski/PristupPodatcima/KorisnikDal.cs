@@ -6,7 +6,6 @@ using System.Configuration;
 using Model;
 using System.IO;
 using System.Xml;
-using PoslovnaLogika;
 
 
 namespace PristupPodatcima

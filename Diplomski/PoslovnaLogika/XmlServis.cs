@@ -15,7 +15,7 @@ using PristupPodatcima;
 
 namespace PoslovnaLogika
 {
-    class XmlServis
+    public class XmlServis
     {
         public static void IspisujeXmlNaKonzolu()
         {

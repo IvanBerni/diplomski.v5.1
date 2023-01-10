@@ -45,5 +45,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XmlServis.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{adf7a5df-8b01-415b-a41f-840abfe146c3}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PristupPodatcima\PristupPodatcima.csproj">
+      <Project>{7ab2c45d-e9fe-4ddb-8549-79b0fee3f741}</Project>
+      <Name>PristupPodatcima</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

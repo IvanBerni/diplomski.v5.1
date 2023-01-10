@@ -35,7 +35,17 @@ namespace Diplomski
 
         protected void UsporediDvaXmla_Click(object sender, EventArgs e)
         {
-            XmlCompare(); //Metoda se nalazi u XmlServis.cs. Poštimati putanje odakle se vuku Xml-i, koristiti fileupload ?
+            XmlServis.XmlComparer comparer = new XmlServis.XmlComparer();
+
+            //sad ovo vidi što treba
+
+            ////////sve iz liste A u listi B ///////////
+
+            
+            //List<Korisnik> imaAnemaB = korisnici1.Except(korisnici2, comparer).ToList();// ima A nema B
+            //List<Korisnik> imaBnemaA = korisnici2.Except(korisnici1, comparer).ToList(); // ima B nema A
+            //List<Korisnik> sviRazlicitiKorisnici = imaAnemaB.Union(imaBnemaA).Distinct<Korisnik>(new XmlServis.XmlComparerId()).ToList();
+            //List<Korisnik> sviRazlicitiKorisniciPoElementima = imaAnemaB.Union(imaBnemaA).Distinct<Korisnik>(new XmlServis.XmlComparer()).ToList();
         }
 
         protected void ExportUXml_Click(object sender, EventArgs e)  //  IZ BAZE U XML
@@ -97,7 +107,8 @@ namespace Diplomski
                 }
             }
 
-            InsertirajPodatkeUBazuIzXmla(); //metoda u Xml.Dal
+            XmlDal pp = new XmlDal();
+            pp.InsertirajPodatkeUBazuIzXmla(); //metoda u Xml.Dal
 
 
 

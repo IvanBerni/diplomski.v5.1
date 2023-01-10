@@ -43,7 +43,10 @@ namespace UnitTestProject
             try
             {
                 KorisnikServis korisnikServis = new KorisnikServis();
-                korisnikServis.AzuriranjeKorisnika(lozinka, ime, prezime, email, kor_id);
+
+                //korsničko ime treba?
+
+                korisnikServis.AzuriranjeKorisnika(lozinka, ime, prezime, email, kor_id,"");
 
 
                 Assert.AreEqual(1, 1);
