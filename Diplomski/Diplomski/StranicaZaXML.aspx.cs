@@ -76,7 +76,7 @@ namespace Diplomski
 
         protected void BtUsporedi_Click(object sender, EventArgs e)
         {
-            string apsolutnaPutanja = Path.Combine(Server.MapPath("~/MapaXmlKorisnici"), FileUpload1.FileName);
+            string apsolutnaPutanja = Path.Combine(Server.MapPath("~/Xmlmapa"), FileUpload1.FileName);
 
             List<Korisnik> korprvi = DajXmlUListu(apsolutnaPutanja);
             List<Korisnik> kordrugi = kos.DajKorisnike();
@@ -119,7 +119,7 @@ namespace Diplomski
         {
             XmlDocument xmldok = new XmlDocument();
             //xmldok.Load(apsolutnaPutanja);// ne da mi pristupiti
-            xmldok.Load(@"C:\Users\s00ivbe\source\repos\ZadatakDva\MPortal\MapaXmlKorisnici\Korisnici.xml");
+            xmldok.Load(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\Korisnici.xml");
             XmlElement root = xmldok.DocumentElement;
             XmlNodeList nodes = root.GetElementsByTagName("korisnik");//korisnik
 
@@ -284,7 +284,7 @@ namespace Diplomski
                 kornode.AppendChild(email);
 
             }
-            xmldok.Save(@"C:\Users\s00ivbe\Desktop\završni rad\ZadatakDva\XmlDatoteka\Korisnici.xml");
+            xmldok.Save(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\Korisnici.xml");
 
 
         }
@@ -304,3 +304,4 @@ namespace Diplomski
 
 
 }
+  

@@ -11,7 +11,7 @@ namespace Diplomski
 {
 
 
-    public partial class Prijava
+    public partial class StranicaZaPrijavu
     {
 
         /// <summary>

@@ -22,6 +22,7 @@ namespace Diplomski
 
         KorisnikServis kos = new KorisnikServis();
         Korisnik kor = new Korisnik();
+        
 
         protected void btnLogIn_Click(object sender, EventArgs e)
         {

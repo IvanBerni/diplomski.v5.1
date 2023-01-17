@@ -1,17 +1,17 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StranicaZaXML.aspx.cs" Inherits="Diplomski.StranicaZaXml" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StranicaZaXML.aspx.cs" Inherits="Diplomski.StranicaZaXML" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
      <br />
 
-     <asp:Button ID="ExportUXml" runat="server" Text="EXPORT KORISNIKA iz baze u XML" OnClick="ExportUXml_Click" />
+     <asp:Button ID="ExportUXml" runat="server" Text="EXPORT KORISNIKA iz baze u XML" OnClick="ExportUXml_Click" Width="395px" />
 
     <br />
     <br />
     <br />
 
-    <asp:Button ID="SpremiXMLuBazu" runat="server" Text="SPREMI U BAZU podatke iz XML" OnClick="SpremiXMLuBazu_Click" Width="401px" />
+    <asp:Button ID="SpremiXMLuBazu" runat="server" Text="SPREMI U BAZU podatke iz XML" OnClick="SpremiXMLuBazu_Click" Width="397px" />
     
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         

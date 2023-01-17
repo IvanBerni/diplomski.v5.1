@@ -20,7 +20,7 @@ namespace PoslovnaLogika
         public static void IspisujeXmlNaKonzolu()
         {
             XmlDocument dok = new XmlDocument();
-            dok.Load(@"C: \Users\s00ivbe\source\repos\ZadatakDva\XmlDatoteka\Korisnici.xml");
+            dok.Load(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\XMLFile2.xml");
             XmlElement ela = dok.DocumentElement;
             Console.WriteLine(ela.InnerXml);
             Console.ReadKey();
@@ -102,7 +102,7 @@ namespace PoslovnaLogika
             List<Korisnik> korisnici2 = new List<Korisnik>();
 
 
-            xmldok1.Load(@"C:\Users\s00ivbe\Desktop\xml\KorisnikA.xml");
+            xmldok1.Load(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\XMLFile2.xml");
             XmlElement root = xmldok1.DocumentElement;
             XmlNodeList nodes = root.GetElementsByTagName("Korisnik");
             XmlRootAttribute xra = new XmlRootAttribute();
@@ -116,7 +116,7 @@ namespace PoslovnaLogika
                 korisnici1.Add((Korisnik)xs.Deserialize(stream));
             }
 
-            xmldok2.Load(@"C:\Users\s00ivbe\Desktop\xml\KorisnikB.xml");
+            xmldok2.Load(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\XMLFile3.xml");
             XmlElement root2 = xmldok2.DocumentElement;
             XmlNodeList nodes2 = root2.GetElementsByTagName("Korisnik");
             XmlRootAttribute xra2 = new XmlRootAttribute();
@@ -143,7 +143,7 @@ namespace PoslovnaLogika
             if (kolko != 0)
             {
                 XmlDocument razdok = KreiraXmlListuRazlike(sviRazlicitiKorisnici);
-                razdok.Save(@"C:\Users\s00ivbe\source\repos\vjezbamXML\vjezbamXML\mapa_za_xml\Različiti_iz_AB_po_IDu.xml");
+                razdok.Save(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\Različiti_iz_AB_po_IDu.xml");
                 Console.WriteLine("Kreiran XML sa svim razlikama");
                 Console.ReadKey();
             }
@@ -162,7 +162,7 @@ namespace PoslovnaLogika
             if (kolkoima != 0)
             {
                 XmlDocument razdok = KreiraXmlListuRazlike(sviRazlicitiKorisniciPoElementima);
-                razdok.Save(@"C:\Users\s00ivbe\Desktop\xml\Različiti_iz_AB_po_elementu.xml");
+                razdok.Save(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\Različiti_iz_AB_po_elementu.xml");
                 Console.WriteLine("Kreira XML sa svim različitim iz A i B po elementima");
                 //Console.ReadKey();
             }
@@ -184,7 +184,7 @@ namespace PoslovnaLogika
             if (br != 0)
             {
                 XmlDocument razdok = KreiraXmlListuRazlike(imaAnemaB);
-                razdok.Save(@"C:\Users\s00ivbe\source\repos\vjezbamXML\vjezbamXML\mapa_za_xml\RazlikaAB24.12.xml");
+                razdok.Save(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\RazlikaAB.xml");
                 Console.WriteLine("Kreira XML sa svim A kojih nema u B");
                 //  Console.ReadKey();
             }
@@ -200,7 +200,7 @@ namespace PoslovnaLogika
             if (bro != 0)
             {
                 XmlDocument razdok = KreiraXmlListuRazlike(imaBnemaA);
-                razdok.Save(@"C:\Users\s00ivbe\source\repos\vjezbamXML\vjezbamXML\mapa_za_xml\RazlikaBA24.12.xml");
+                razdok.Save(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\RazlikaBA.xml");
                 Console.WriteLine("Kreira XML sa svim B kojih nema u A");
                 //Console.ReadKey();
             }
@@ -223,7 +223,7 @@ namespace PoslovnaLogika
             if (broj != 0)
             {
                 XmlDocument razdokA = KreiraXmlListuRazlike(obrisaniKorisnici);
-                razdokA.Save(@"C:\Users\s00ivbe\source\repos\vjezbamXML\vjezbamXML\mapa_za_xml\ImaANemaB.xml");
+                razdokA.Save(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\ImaANemaB.xml");
                 Console.WriteLine("Kreiran XML Ima A nema B");
                 Console.ReadKey();
             }
@@ -240,7 +240,7 @@ namespace PoslovnaLogika
             if (a != 0)
             {
                 XmlDocument razdokB = KreiraXmlListuRazlike(dodaniKorisnici);
-                razdokB.Save(@"C:\Users\s00ivbe\source\repos\vjezbamXML\vjezbamXML\mapa_za_xml\ImaBNemaA.xml");
+                razdokB.Save(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\ImaBNemaA.xml");
                 Console.WriteLine("Kreiran XML Ima B nema A");
                 Console.ReadKey();
             }
@@ -261,15 +261,16 @@ namespace PoslovnaLogika
         public void Xml_Azuriranje() //treba kreirati text box za unos podataka za ažuriranje
         {
             XmlDocument xmlDok = new XmlDocument();
-            xmlDok.Load(@"C: \Users\s00ivbe\source\repos\ZadatakDva\XmlDatoteka\Korisnici.xml");
+            xmlDok.Load(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\Korisnici.xml");
 
             XmlNode usernode = xmlDok.SelectSingleNode("//korisnici//korisnik/korisnik_id");
             //usernode.InnerText = txt_box.Text;
             usernode.InnerText = "2";
 
-            xmlDok.Save(@"C: \Users\s00ivbe\source\repos\ZadatakDva\XmlDatoteka\Korisnici.xml");
+            xmlDok.Save(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\AzuriranKorisnik_id.xml");
 
-            //Response.Write("xml ažuriran");
+            Console.WriteLine("xml ažuriran");
+            Console.ReadKey();
         }
 
         public void KreiraXMLsaXmlDocument()
@@ -300,7 +301,7 @@ namespace PoslovnaLogika
 
             rootNode.AppendChild(korisnikNode);
 
-            xmldoc.Save(@"C:\Users\s00ivbe\source\repos\ZadatakDva\XmlDatoteka\Korisnici.xml");
+            xmldoc.Save(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\Korisnici.xml");
 
 
 

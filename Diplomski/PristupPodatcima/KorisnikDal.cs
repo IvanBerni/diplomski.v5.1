@@ -77,7 +77,7 @@ namespace PristupPodatcima
 
 
                     korisnik.KorisnikId = (int)reader["KorisnikId"];
-                    // korisnik.KorisnickoIme = reader["KorisnickoIme"].ToString();
+                    korisnik.KorisnickoIme = reader["KorisnickoIme"].ToString();
                     korisnik.Lozinka = reader["Lozinka"].ToString();
                     korisnik.Email = reader["Email"].ToString();
                     korisnik.Ime = reader["Ime"].ToString();
@@ -133,7 +133,7 @@ namespace PristupPodatcima
                 SqlDataAdapter sda = new SqlDataAdapter(comm, connString);
                 DataSet ds = new DataSet();
                 sda.Fill(ds);
-                ds.WriteXml(@"C:\Users\s00ivbe\source\repos\ZadatakDva\XmlDatoteka\Korisnici.xml");
+                ds.WriteXml(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\XMLFile4.xml");
 
 
 
@@ -168,7 +168,7 @@ namespace PristupPodatcima
             while (reader.Read())
             {
                 korisnik.KorisnikId = (int)reader["KorisnikId"];
-                //  korisnik.KorisnickoIme = reader["korisnicko_ime"].ToString();
+                korisnik.KorisnickoIme = reader["korisnicko_ime"].ToString();
                 korisnik.Lozinka = reader["Lozinka"].ToString();
                 korisnik.Email = reader["Email"].ToString();
                 korisnik.Ime = reader["Ime"].ToString();

@@ -11,7 +11,7 @@ namespace Diplomski
 {
 
 
-    public partial class SiteMaster
+    public partial class Site
     {
 
         /// <summary>

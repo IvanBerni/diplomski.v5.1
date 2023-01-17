@@ -11,7 +11,7 @@ namespace Diplomski
 {
 
 
-    public partial class StranicaZaXml
+    public partial class StranicaZaXML
     {
 
         /// <summary>
