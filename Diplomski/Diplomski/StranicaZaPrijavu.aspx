@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StranicaZaPrijavu.aspx.cs" Inherits="Diplomski.StranicaZaPrijavu" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StranicaZaPrijavu.aspx.cs" Inherits="Diplomski.Prijava" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -6,7 +6,7 @@
 
     <table style="width: 100%; border: 1px solid #FF00FF; background-color: #C0C0C0">
         <tr>
-            <td style="width: 173px">
+            <td style="width: 173px">q
                 <asp:Label ID="Name" runat="server" CssClass="lbl" Text="UserName:" />
             </td>
             <td style="width: 428px">

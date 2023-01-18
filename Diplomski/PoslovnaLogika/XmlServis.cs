@@ -17,16 +17,7 @@ namespace PoslovnaLogika
 {
     public class XmlServis
     {
-        public static void IspisujeXmlNaKonzolu()
-        {
-            XmlDocument dok = new XmlDocument();
-            dok.Load(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\XMLFile2.xml");
-            XmlElement ela = dok.DocumentElement;
-            Console.WriteLine(ela.InnerXml);
-            Console.ReadKey();
-            return;
-
-        }
+       
 
         public class XmlComparerId : IEqualityComparer<Korisnik>
         {
@@ -93,7 +84,7 @@ namespace PoslovnaLogika
 
         }
 
-        public static void XmlCompare()
+        public static void XmlCompare(string putanja1,string putanja2)
         {
             XmlDocument xmldok1 = new XmlDocument();
             XmlDocument xmldok2 = new XmlDocument();
@@ -102,7 +93,7 @@ namespace PoslovnaLogika
             List<Korisnik> korisnici2 = new List<Korisnik>();
 
 
-            xmldok1.Load(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\XMLFile2.xml");
+            xmldok1.Load(putanja1);
             XmlElement root = xmldok1.DocumentElement;
             XmlNodeList nodes = root.GetElementsByTagName("Korisnik");
             XmlRootAttribute xra = new XmlRootAttribute();
@@ -116,7 +107,7 @@ namespace PoslovnaLogika
                 korisnici1.Add((Korisnik)xs.Deserialize(stream));
             }
 
-            xmldok2.Load(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\XMLFile3.xml");
+            xmldok2.Load(putanja2);
             XmlElement root2 = xmldok2.DocumentElement;
             XmlNodeList nodes2 = root2.GetElementsByTagName("Korisnik");
             XmlRootAttribute xra2 = new XmlRootAttribute();
@@ -258,7 +249,7 @@ namespace PoslovnaLogika
 
 
 
-        public void Xml_Azuriranje() //treba kreirati text box za unos podataka za ažuriranje
+        public void Xml_Azuriranje() //treba kreirati text box za unos podataka za ažuriranje ako ću imati opciju ažuriranja preko unosa
         {
             XmlDocument xmlDok = new XmlDocument();
             xmlDok.Load(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\Korisnici.xml");

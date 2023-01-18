@@ -19,7 +19,7 @@ using PristupPodatcima;
 
 namespace Diplomski
 {
-    public partial class StranicaZaXml : System.Web.UI.Page
+    public partial class StranicaZaXML : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,22 +30,28 @@ namespace Diplomski
         List<Korisnik> kor = new List<Korisnik>();
 
 
-
-
-
-        protected void UsporediDvaXmla_Click(object sender, EventArgs e)
+        protected void IspisiXml_Click(object sender, EventArgs e)  // ispisuje XML na konzoli
         {
-            XmlServis.XmlComparer comparer = new XmlServis.XmlComparer();
+            
 
-            //sad ovo vidi što treba
 
-            ////////sve iz liste A u listi B ///////////
+            IspisujeXmlNaKonzolu();
+
+
+        }
+
+
+        protected void UsporediDvaXmla_Click(object sender, EventArgs e)  // uspoređuje dva XML-a
+        {
+             
+
+            string apsolutnaPutanja2 = Path.Combine(Server.MapPath("~/Xmlmapa"), FileUpload2.FileName);
+            string apsolutnaPutanja1 = Path.Combine(Server.MapPath("~/Xmlmapa"), FileUpload1.FileName);
 
             
-            //List<Korisnik> imaAnemaB = korisnici1.Except(korisnici2, comparer).ToList();// ima A nema B
-            //List<Korisnik> imaBnemaA = korisnici2.Except(korisnici1, comparer).ToList(); // ima B nema A
-            //List<Korisnik> sviRazlicitiKorisnici = imaAnemaB.Union(imaBnemaA).Distinct<Korisnik>(new XmlServis.XmlComparerId()).ToList();
-            //List<Korisnik> sviRazlicitiKorisniciPoElementima = imaAnemaB.Union(imaBnemaA).Distinct<Korisnik>(new XmlServis.XmlComparer()).ToList();
+            XmlServis.XmlCompare(apsolutnaPutanja1, apsolutnaPutanja2);
+
+
         }
 
         protected void ExportUXml_Click(object sender, EventArgs e)  //  IZ BAZE U XML
@@ -56,12 +62,12 @@ namespace Diplomski
 
         }
 
-        protected void bt_uveziXml_Click(object sender, EventArgs e)  // S DISKA UČITAVA XML I SPREMA GA U MAPU "MapaXmlKorisnici"
+        protected void bt_uveziXml_Click(object sender, EventArgs e)  // S DISKA UČITAVA XML I SPREMA GA U MAPU "Xmlmapa"
         {
 
             if (FileUpload1.HasFile)
             {
-                string apsolutnaPutanja = Path.Combine(Server.MapPath("~/MapaXmlKorisnici"), FileUpload1.FileName);
+                string apsolutnaPutanja = Path.Combine(Server.MapPath("~/Xmlmapa"), FileUpload1.FileName);
                 FileUpload1.SaveAs(apsolutnaPutanja);
                 Label1.Text = "učitani fajl: " + FileUpload1.FileName;
 
@@ -74,7 +80,25 @@ namespace Diplomski
 
         }
 
-        protected void BtUsporedi_Click(object sender, EventArgs e)
+        protected void bt_uvezidrugiXml_Click(object sender, EventArgs e)  // S DISKA UČITAVA XML I SPREMA GA U MAPU "Xmlmapa"
+        {
+
+            if (FileUpload2.HasFile)
+            {
+                string apsolutnaPutanja2 = Path.Combine(Server.MapPath("~/Xmlmapa"), FileUpload2.FileName);
+                FileUpload2.SaveAs(apsolutnaPutanja2);
+                Label2.Text = "učitani fajl: " + FileUpload2.FileName;
+
+            }
+
+            else
+            {
+                Label2.Text = "fajl nije učitan";
+            }
+
+        }
+
+        protected void BtUsporedi_Click(object sender, EventArgs e)   //uspoređuje dvije liste korisnika. jedna lista se puni iz XML-a, druga iz baze
         {
             string apsolutnaPutanja = Path.Combine(Server.MapPath("~/Xmlmapa"), FileUpload1.FileName);
 
@@ -87,13 +111,14 @@ namespace Diplomski
         protected void SpremiXMLuBazu_Click(object sender, EventArgs e)  //sprema u bazu podatke iz XML-a, koristi stored proceduru.JAVLJA GREŠKU!! TREBA Deserialize??
         {
             string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
-            string filePath = Server.MapPath("~/XmlDatoteka/") + fileName;
+            string filePath = Server.MapPath("~/Xmlmapa/") + fileName;  
             FileUpload1.SaveAs(filePath);
-            string xml = File.ReadAllText(filePath);
+            
+            string xml = File.ReadAllText(filePath);  
             string constr = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
 
             XmlDocument xd = new XmlDocument();
-            xd.LoadXml(xml);
+            xd.LoadXml(xml);  
             using (SqlConnection con = new SqlConnection(constr))
             {
                 using (SqlCommand cmd = new SqlCommand("InsertirajXML"))
@@ -102,13 +127,13 @@ namespace Diplomski
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@xml", xd);  ////opcija:xml umjesto xd //cmd.Parameters.Add("@xml", SqlDbType.Xml).Value = xd.GetXml();
                     con.Open();
-                    cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery(); 
                     con.Close();
                 }
             }
-
+         
             XmlDal pp = new XmlDal();
-            pp.InsertirajPodatkeUBazuIzXmla(); //metoda u Xml.Dal
+            pp.InsertirajPodatkeUBazuIzXmla(); //metoda u XmlDal
 
 
 
@@ -286,6 +311,20 @@ namespace Diplomski
             }
             xmldok.Save(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa\Korisnici.xml");
 
+
+        }
+
+
+        public void IspisujeXmlNaKonzolu()
+        {
+            string apsolutnaPutanja = Path.Combine(Server.MapPath("~/Xmlmapa"), FileUpload1.FileName);
+
+            XmlDocument dok = new XmlDocument();
+            dok.Load(apsolutnaPutanja);
+            XmlElement ela = dok.DocumentElement;
+            Console.WriteLine(ela.InnerXml);
+            Console.ReadKey();
+            return;
 
         }
 

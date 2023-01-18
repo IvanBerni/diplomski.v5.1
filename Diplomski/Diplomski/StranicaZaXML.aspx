@@ -26,16 +26,32 @@
     <br />
     <br />
     <asp:Button ID="UsporediDvaXmla" runat="server" Text="Usporedi dva XML-a" OnClick="UsporediDvaXmla_Click" Width="398px" />
+
+    <br />
+    <br />
+    <br />
+    <asp:Button ID="IspisiXml" runat="server" Text="Ispiši XML" OnClick="IspisiXml_Click" Width="398px" />
     <br />
     <br />
     <br />
     <br />
-    <asp:Button ID="bt_uveziXml" runat="server" Text="uveziXml" OnClick="bt_uveziXml_Click" />
+    <asp:Button ID="bt_uveziXml" runat="server" Text="uveziXml" OnClick="bt_uveziXml_Click" Width="100px" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:FileUpload runat="server" ID="FileUpload1" />
     <br />
     <br />
     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+    <br />
+    <br />
+    <br />
+
+
+    <asp:Button ID="bt_uvezidrugiXml" runat="server" Text="uvezi drugi Xml" OnClick="bt_uvezidrugiXml_Click" Width="99px" />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:FileUpload runat="server" ID="FileUpload2" />
+    <br />
+    <br />
+    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
     <br />
 
    <br /> 
