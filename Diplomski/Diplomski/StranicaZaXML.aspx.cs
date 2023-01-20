@@ -320,7 +320,7 @@ namespace Diplomski
             string apsolutnaPutanja = Path.Combine(Server.MapPath("~/Xmlmapa"), FileUpload1.FileName);
 
             XmlDocument dok = new XmlDocument();
-            dok.Load(apsolutnaPutanja);
+            dok.Load(@"C:\Users\User\Source\Repos\diplomski.v5.1\Diplomski\Diplomski\Xmlmapa");
             XmlElement ela = dok.DocumentElement;
             Console.WriteLine(ela.InnerXml);
             Console.ReadKey();
